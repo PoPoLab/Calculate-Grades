@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>คำนวณ GPA และ GPAX ตามข้อบังคับมหาวิทยาลัยนวมินทราธิราช </title>
+  <title>คำนวณ GPA และ GPAX ตามข้อบังคับมหาวิทยาลัยนวมินทราธิราช</title>
   <style>
     :root {
       --bg: #f5f7fb;
@@ -297,7 +297,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>คำนวณ GPA และ GPAX ตามข้อบังคับมหาวิทยาลัย</h1>
+      <h1>คำนวณ GPA และ GPAX ตามข้อบังคับมหาวิทยาลัยนวมินทราธิราช</h1>
       <p>ระบบนี้คำนวณจากรายวิชาที่มีค่าระดับคะแนนเท่านั้น โดย W, I, P, S, ST, U และ X จะไม่ถูกนำมาคิดค่าเฉลี่ย</p>
     </div>
 
@@ -357,7 +357,7 @@
       </div>
       <button class="btn-primary" id="addTermBtn" type="button">เพิ่มภาคการศึกษา</button>
       <button class="btn-secondary" id="manualBtn" type="button">คู่มือ</button>
-      <a class="btn-secondary link-btn" id="regulationLinkBtn" href="Regulations on Undergraduate Studies 2023_NMU.pdf" target="_blank" rel="noopener noreferrer">ระเบียบข้อบังคับที่อ้างถึง (PDF)</a>
+      <a class="btn-secondary link-btn" id="regulationLinkBtn" href="ข้อบังคับ-ปริญญาตรี-2566_v1.pdf" target="_blank" rel="noopener noreferrer">ระเบียบข้อบังคับที่อ้างถึง (PDF)</a>
       <button class="btn-secondary" id="fillExampleBtn" type="button">กรอกตัวอย่าง</button>
       <button class="btn-danger" id="resetAllBtn" type="button">ล้างข้อมูลทั้งหมด</button>
     </div>
@@ -368,7 +368,7 @@
     <div id="termsContainer"></div>
 
     <div class="footer-note">
-      รายวิชาที่มีสัญลักษณ์ W จะไม่นำมาคิดค่าเฉลี่ย และหากมีการเรียนซ้ำควรใช้ผลการเรียนครั้งสุดท้ายในการคำนวณ GPAX Desiged by Chomdee P.
+      คำนวนเกรดตามข้อบังคับมหาวิทยาลัย: รายวิชาที่มีสัญลักษณ์ W จะไม่นำมาคิดค่าเฉลี่ย และหากมีการเรียนซ้ำควรใช้ผลการเรียนครั้งสุดท้ายในการคำนวณ GPAX Desiged by Pongsathorn C.
     </div>
   </div>
 
@@ -667,7 +667,7 @@
       yearInput.min = '2500';
       yearInput.step = '1';
       yearInput.value = term.academicYear;
-      yearInput.addEventListener('input', (e) => updateTermField(term.key, 'academicYear', e.target.value));
+      yearInput.addEventListener('change', (e) => updateTermField(term.key, 'academicYear', e.target.value));
       yearBox.querySelector('.mini-value').appendChild(yearInput);
       summary.appendChild(yearBox);
 
@@ -724,14 +724,14 @@
         codeInput.className = 'text-input';
         codeInput.type = 'text';
         codeInput.value = course.code;
-        codeInput.addEventListener('input', (e) => updateCourse(term.key, course.id, 'code', e.target.value));
+        codeInput.addEventListener('change', (e) => updateCourse(term.key, course.id, 'code', e.target.value));
         tr.appendChild(createLabeledCell('รหัสวิชา', codeInput));
 
         const nameInput = document.createElement('input');
         nameInput.className = 'text-input';
         nameInput.type = 'text';
         nameInput.value = course.name;
-        nameInput.addEventListener('input', (e) => updateCourse(term.key, course.id, 'name', e.target.value));
+        nameInput.addEventListener('change', (e) => updateCourse(term.key, course.id, 'name', e.target.value));
         tr.appendChild(createLabeledCell('ชื่อรายวิชา', nameInput));
 
         const creditInput = document.createElement('input');
@@ -740,7 +740,7 @@
         creditInput.min = '0';
         creditInput.step = '0.5';
         creditInput.value = course.credits;
-        creditInput.addEventListener('input', (e) => updateCourse(term.key, course.id, 'credits', e.target.value));
+        creditInput.addEventListener('change', (e) => updateCourse(term.key, course.id, 'credits', e.target.value));
         tr.appendChild(createLabeledCell('หน่วยกิต', creditInput));
 
         const gradeSelect = createGradeSelect(course.grade);
@@ -898,12 +898,12 @@
         '4) เพิ่มรายวิชาในแต่ละภาค แล้วกรอกหน่วยกิตและเกรด',
         '5) ระบบจะคำนวณ GPA รายภาค และ GPAX สะสมอัตโนมัติ',
 		'6) จำลองเกรดในเทอมที่นักศึกษาได้เรียน เพื่อประเมินเกรดเฉลี่ยที่ควรจะได้',
-        '7) เกรด W, I, P, S, ST, U และ X จะไม่ถูกนำมาคิดค่าเฉลี่ยในโหมด A นี้'
+        '7) เกรด W, I, P, S, ST, U และ X จะไม่ถูกนำมาคิดค่าเฉลี่ยนี้'
       ].join('<br>');
 
       dom.regulationBox.innerHTML = [
         '<strong>ระเบียบข้อบังคับที่อ้างถึง</strong>',
-        'โหมด A นี้อ้างอิงหลักการคำนวณตามข้อบังคับมหาวิทยาลัยว่าด้วยการศึกษาระดับปริญญาตรี พ.ศ. 2566',
+        'การอ้างอิงหลักการคำนวณตามข้อบังคับมหาวิทยาลัยว่าด้วยการศึกษาระดับปริญญาตรี พ.ศ. 2566',
         'หลักสำคัญที่ใช้ในระบบคือ: GPA/GPAX คิดจากรายวิชาที่มีค่าระดับคะแนน A, B+, B, C+, C, D+, D และ F เท่านั้น',
         'สัญลักษณ์ I, P, S, ST, U, W และ X เป็นสัญลักษณ์ที่ไม่มีค่าระดับคะแนนและจะไม่ถูกนำมาคิดค่าเฉลี่ย',
         'หากมีการเรียนซ้ำ ควรใช้ผลการเรียนครั้งสุดท้ายในการคำนวณ GPAX'
@@ -928,7 +928,7 @@
       console.assert(sampleStats.gpa.toFixed(2) === '3.75', 'GPA ตัวอย่างต้องเท่ากับ 3.75');
     }
 
-    dom.studentIdInput.addEventListener('input', (e) => updateStudentId(e.target.value));
+    dom.studentIdInput.addEventListener('change', (e) => updateStudentId(e.target.value));
     dom.addTermBtn.addEventListener('click', addTerm);
     dom.manualBtn.addEventListener('click', () => toggleBox(dom.manualBox));
     // ปุ่ม PDF เปิดไฟล์โดยตรงเมื่อมีไฟล์ PDF อยู่ในโฟลเดอร์เดียวกับ index.html
